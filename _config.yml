@@ -7,9 +7,13 @@ author: jack boure
 email: support@sixdegrees-learning.com
 
 # GitHub Pages 配置
-url: "https://claws-x.github.io"
+url: "https://sixdegrees-learning.com"  # 自定义域名 (待配置)
 baseurl: ""
 repository: claws-x/claws-x.github.io
+
+# 自定义域名
+# 配置后取消下面注释
+# custom_domain: sixdegrees-learning.com
 
 # 主题配置
 theme: minima
