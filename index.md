@@ -24,20 +24,15 @@ subtitle: AI 用起来 - iOS 开发经验分享 + 独立开发实战
 
 ## 🚀 正在进行的项目
 
-### 10 个 iOS App 开发计划
+### iOS App 开发
 
-| App | 状态 | 定价 |
-|-----|------|------|
-| 午间心灵驿站 | ✅ 完成 | $0.99 |
-| TipCalc Pro | ✅ 完成 | $0.99 |
-| HydroTrack | ✅ 完成 | $1.99 |
-| PhotoVault Pro | ✅ 完成 | $2.99 |
-| FocusPomo | ✅ 完成 | $1.99 |
-| SubManager | ✅ 完成 | $1.99 |
-| HabitTracker | ✅ 完成 | $1.99 |
-| 更多... | 开发中 | - |
+正在开发一系列实用 iOS 应用，所有代码开源：
 
-**目标**: 月收入 $10,000+
+- [午间心灵驿站](https://github.com/claws-x/sub_app) - 名言推送
+- [TipCalc Pro](https://github.com/claws-x/tipcalc-pro) - 小费计算
+- [HydroTrack](https://github.com/claws-x/water-reminder) - 喝水提醒
+
+**状态**: 开发完成，准备上架
 
 ---
 

@@ -7,9 +7,9 @@ permalink: /about/
 ## 👋 关于我
 
 **昵称**: Clawx-x  
-**定位**: iOS 独立开发者  
+**定位**: iOS 开发者  
 **坐标**: 日本  
-**目标**: 开发 10+ 精品 App，实现财务自由
+**现状**: 学习 SwiftUI，开发实用 App
 
 ---
 
@@ -30,16 +30,13 @@ permalink: /about/
 
 ## 📱 开发项目
 
-### 10 个 App 计划
+### 正在开发的 App
 
-正在开发 10 个 iOS App，涵盖：
-- 健康类 (HydroTrack, PeriodTrack)
-- 效率类 (FocusPomo, HabitTracker, SubManager)
-- 工具类 (TipCalc Pro, ScreenTime, WidgetKit Pro)
-- 生活类 (午间心灵驿站)
-- 安全类 (PhotoVault Pro)
+- 午间心灵驿站 - 名言推送
+- TipCalc Pro - 小费计算
+- HydroTrack - 喝水提醒
 
-**目标**: 月收入 $10,000+
+所有项目代码开源在 GitHub。
 
 ---
 
@@ -67,18 +64,17 @@ permalink: /about/
 
 ---
 
-## 🌍 小目标
+## 🌍 当前目标
 
-### 短期 (2026)
-- [ ] 10 个 App 全部上架
-- [ ] 月收入 $10,000+
-- [ ] 公众号粉丝 10,000+
-- [ ] 博客访客 50,000/月
+### 本周
+- [ ] 真机测试 3 个 App
+- [ ] 修复发现的问题
+- [ ] 提交第一个 App 上架
 
-### 长期 (2026-2035)
-- [ ] 小目标一个亿
-- [ ] 财务自由
-- [ ] 帮助更多人
+### 本月
+- [ ] 上架 3 个 App
+- [ ] 写 8 篇技术文章
+- [ ] 获得第一个用户
 
 ---
 
