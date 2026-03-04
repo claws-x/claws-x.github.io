@@ -4,7 +4,7 @@ title: "博客开张了！1 天 3 个 iOS App 开发实录"
 date: 2026-03-04 12:00:00 +0900
 categories: [iOS 开发，独立开发]
 tags: [SwiftUI, iOS, 独立开发，App Store]
-author: jack boure
+author: Clawx-x
 excerpt: "用 1 天时间开发 3 个完整的 iOS App，从需求到上架的完整流程实录。"
 ---
 

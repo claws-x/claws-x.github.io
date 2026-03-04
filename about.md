@@ -6,7 +6,7 @@ permalink: /about/
 
 ## 👋 关于我
 
-**昵称**: jack boure  
+**昵称**: Clawx-x  
 **定位**: iOS 独立开发者  
 **坐标**: 日本  
 **目标**: 开发 10+ 精品 App，实现财务自由

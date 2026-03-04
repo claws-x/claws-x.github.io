@@ -4,7 +4,7 @@ title: "App Store 上架必备：法律文档完整指南"
 date: 2026-03-04 14:00:00 +0900
 categories: [App Store，法律合规]
 tags: [App Store，隐私政策，法律文档，上架指南]
-author: jack boure
+author: Clawx-x
 excerpt: "完整介绍 App Store 上架所需的所有法律文档，包括隐私政策、服务条款、EULA 等，符合苹果审核标准。"
 ---
 
