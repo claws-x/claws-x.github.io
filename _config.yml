@@ -1,0 +1,64 @@
+# Six Degrees Space Learning Path - Blog Configuration
+# 六度空间学习之路 - 博客配置
+
+title: 六度空间学习之路
+description: AI 用起来 - iOS 开发经验分享 + 独立开发实战
+author: jack boure
+email: support@sixdegrees-learning.com
+
+# GitHub Pages 配置
+url: "https://claws-x.github.io"
+baseurl: ""
+repository: claws-x/claws-x.github.io
+
+# 主题配置
+theme: minima
+markdown: kramdown
+highlighter: rouge
+
+# 导航配置
+nav:
+  - name: 首页
+    link: /
+  - name: 关于
+    link: /about/
+  - name: 博客
+    link: /blog/
+  - name: 项目
+    link: /projects/
+  - name: GitHub
+    link: https://github.com/claws-x
+
+# SEO 配置
+google_analytics: ""
+
+# 社交媒体
+social:
+  github: claws-x
+  wechat: "六度空间学习之路"
+
+# 构建配置
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# 分页配置
+paginate: 10
+paginate_path: "/page:num/"
+
+# 日期格式
+date_format: "%Y-%m-%d"
+
+# 分类和标签
+category_dir: /categories/
+tag_dir: /tags/
+
+# 头像
+avatar: /assets/images/avatar.jpg
+
+# 页脚
+footer:
+  copyright: "© 2026 六度空间学习之路。All rights reserved."
+  description: "AI 用起来，这里是六度空间学习之路。"
