@@ -2,70 +2,74 @@
 layout: default
 ---
 
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <article>
   <!-- Post Header -->
   <header class="post-header">
     <div class="site-wrapper">
-      <h1 class="post-title">{{ page.title }}</h1>
+      <h1 class="post-title glow-text">{{ page.title }}</h1>
       
       <div class="post-meta-large">
         <span>📅 {{ page.date | date: "%Y-%m-%d" }}</span>
         <span>📁 {{ page.categories | join: ", " }}</span>
         <span>⏱️ {{ page.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
-        <span>👤 {{ page.author | default: site.author }}</span>
+        <span>✍️ {{ page.author | default: site.author }}</span>
       </div>
       
       {% if page.excerpt %}
-      <p style="margin-top: 24px; font-size: 20px; color: var(--text-light); max-width: 700px;">
+      <p style="margin-top: 32px; font-size: 20px; color: var(--text-secondary); max-width: 700px; margin-left: auto; margin-right: auto;">
         {{ page.excerpt }}
       </p>
       {% endif %}
     </div>
   </header>
   
-  <!-- Scroll Progress -->
-  <div class="scroll-progress" id="scrollProgress"></div>
-  
   <!-- Post Content -->
-  <div class="site-wrapper">
-    <div class="post-content">
-      {{ content }}
-    </div>
-    
-    <!-- Tags -->
-    {% if page.tags %}
-    <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+  <div class="post-content">
+    {{ content }}
+  </div>
+  
+  <!-- Tags -->
+  {% if page.tags %}
+  <div style="max-width: 720px; margin: 0 auto; padding: 0 20px;">
+    <div style="margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border);">
       <div class="post-tags">
         {% for tag in page.tags %}
         <span class="tag">#{{ tag }}</span>
         {% endfor %}
       </div>
     </div>
-    {% endif %}
-    
-    <!-- Author Bio -->
-    <div style="margin-top: 60px; background: var(--bg-secondary); padding: 32px; border-radius: 12px;">
-      <h3 style="margin-bottom: 16px;">About the Author</h3>
-      <p style="color: var(--text-light); margin-bottom: 16px;">
-        <strong>{{ site.author }}</strong> - iOS developer and indie app creator. 
-        Built 5+ apps with 4,000+ users. Sharing real-world experience and practical knowledge.
+  </div>
+  {% endif %}
+  
+  <!-- Author Bio -->
+  <div style="max-width: 720px; margin: 0 auto; padding: 0 20px;">
+    <div style="margin-top: 64px; background: var(--bg-card); border: 1px solid var(--border); padding: 40px; border-radius: 24px;">
+      <h3 style="margin-bottom: 16px; font-size: 20px;">About the Author</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 24px; line-height: 1.8;">
+        <strong style="color: var(--text-primary);">{{ site.author }}</strong> - iOS developer and indie app creator. 
+        Built 5+ apps with 4,000+ users in first month. Sharing real-world experience and practical knowledge.
       </p>
-      <div style="display: flex; gap: 16px;">
-        <a href="https://github.com/{{ site.social.github }}" class="btn btn-secondary">
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="https://github.com/{{ site.social.github }}" class="btn" target="_blank" rel="noopener">
           GitHub
         </a>
-        <a href="/" class="btn">
+        <a href="/" class="btn btn-secondary">
           More Articles
         </a>
       </div>
     </div>
-    
-    <!-- Share -->
-    <div style="margin-top: 32px; text-align: center;">
-      <p style="color: var(--text-light); margin-bottom: 16px;">
+  </div>
+  
+  <!-- Share -->
+  <div style="max-width: 720px; margin: 0 auto; padding: 0 20px;">
+    <div style="margin-top: 48px; text-align: center;">
+      <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 15px;">
         If you found this article helpful, please share it!
       </p>
-      <div style="display: flex; justify-content: center; gap: 12px;">
+      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
         <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}" 
            class="btn btn-secondary" 
            target="_blank"
@@ -83,6 +87,12 @@ layout: default
            target="_blank"
            rel="noopener">
           📰 Hacker News
+        </a>
+        <a href="https://reddit.com/submit?url={{ page.url | absolute_url | url_encode }}&title={{ page.title | url_encode }}" 
+           class="btn btn-secondary" 
+           target="_blank"
+           rel="noopener">
+          🤖 Reddit
         </a>
       </div>
     </div>
