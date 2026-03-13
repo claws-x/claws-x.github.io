@@ -27,13 +27,6 @@ title: Home
         <div class="stat-label">MONTHLY</div>
       </div>
     </div>
-    
-    <!-- CTA Button -->
-    <div style="margin-top: 48px;">
-      <a href="/blog/" class="btn" style="font-size: 16px; padding: 12px 32px;">
-        View Blog →
-      </a>
-    </div>
   </div>
 </section>
 
