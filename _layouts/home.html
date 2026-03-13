@@ -1,0 +1,79 @@
+---
+layout: default
+---
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="site-wrapper">
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+  </div>
+</section>
+
+<!-- Post List -->
+<div class="site-wrapper">
+  <div class="post-list">
+    {% for post in paginator.posts %}
+    <article class="post-card">
+      <h2>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </h2>
+      
+      <div class="post-meta">
+        <span>📅 {{ post.date | date: "%Y-%m-%d" }}</span>
+        <span>📁 {{ post.categories | join: ", " }}</span>
+        <span>⏱️ {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+      </div>
+      
+      <p class="post-excerpt">
+        {% if post.excerpt %}
+          {{ post.excerpt | strip_html | truncate: 200 }}
+        {% else %}
+          {{ post.content | strip_html | truncate: 200 }}
+        {% endif %}
+      </p>
+      
+      {% if post.tags %}
+      <div class="post-tags">
+        {% for tag in post.tags %}
+        <span class="tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+  
+  <!-- Pagination -->
+  {% if paginator.total_pages > 1 %}
+  <div style="margin-top: 40px; text-align: center;">
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="btn btn-secondary">
+      ← Newer Posts
+    </a>
+    {% endif %}
+    
+    <span style="margin: 0 20px; color: var(--text-light);">
+      Page {{ paginator.page }} of {{ paginator.total_pages }}
+    </span>
+    
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" class="btn btn-secondary">
+      Older Posts →
+    </a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+
+<!-- About Section -->
+<div class="site-wrapper" style="margin-top: 60px;">
+  <div style="background: var(--bg-secondary); padding: 40px; border-radius: 12px; text-align: center;">
+    <h2 style="margin-bottom: 16px;">About This Blog</h2>
+    <p style="color: var(--text-light); max-width: 600px; margin: 0 auto 24px;">
+      AI 用起来，这里是六度空间学习之路。分享 iOS 开发经验、独立开发实战和深度技术文章。
+      每篇文章都是精心打磨的精品，宁缺毋滥，对读者时间负责。
+    </p>
+    <a href="/about/" class="btn">Learn More</a>
+  </div>
+</div>

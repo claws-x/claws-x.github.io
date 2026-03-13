@@ -1,0 +1,100 @@
+---
+layout: default
+---
+
+<article>
+  <!-- Post Header -->
+  <header class="post-header">
+    <div class="site-wrapper">
+      <h1 class="post-title">{{ page.title }}</h1>
+      
+      <div class="post-meta-large">
+        <span>📅 {{ page.date | date: "%Y-%m-%d" }}</span>
+        <span>📁 {{ page.categories | join: ", " }}</span>
+        <span>⏱️ {{ page.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+        <span>👤 {{ page.author | default: site.author }}</span>
+      </div>
+      
+      {% if page.excerpt %}
+      <p style="margin-top: 24px; font-size: 20px; color: var(--text-light); max-width: 700px;">
+        {{ page.excerpt }}
+      </p>
+      {% endif %}
+    </div>
+  </header>
+  
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+  
+  <!-- Post Content -->
+  <div class="site-wrapper">
+    <div class="post-content">
+      {{ content }}
+    </div>
+    
+    <!-- Tags -->
+    {% if page.tags %}
+    <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border-color);">
+      <div class="post-tags">
+        {% for tag in page.tags %}
+        <span class="tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    
+    <!-- Author Bio -->
+    <div style="margin-top: 60px; background: var(--bg-secondary); padding: 32px; border-radius: 12px;">
+      <h3 style="margin-bottom: 16px;">About the Author</h3>
+      <p style="color: var(--text-light); margin-bottom: 16px;">
+        <strong>{{ site.author }}</strong> - iOS developer and indie app creator. 
+        Built 5+ apps with 4,000+ users. Sharing real-world experience and practical knowledge.
+      </p>
+      <div style="display: flex; gap: 16px;">
+        <a href="https://github.com/{{ site.social.github }}" class="btn btn-secondary">
+          GitHub
+        </a>
+        <a href="/" class="btn">
+          More Articles
+        </a>
+      </div>
+    </div>
+    
+    <!-- Share -->
+    <div style="margin-top: 32px; text-align: center;">
+      <p style="color: var(--text-light); margin-bottom: 16px;">
+        If you found this article helpful, please share it!
+      </p>
+      <div style="display: flex; justify-content: center; gap: 12px;">
+        <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}" 
+           class="btn btn-secondary" 
+           target="_blank"
+           rel="noopener">
+          🐦 Twitter
+        </a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | url_encode }}" 
+           class="btn btn-secondary" 
+           target="_blank"
+           rel="noopener">
+          💼 LinkedIn
+        </a>
+        <a href="https://news.ycombinator.com/submitlink?u={{ page.url | absolute_url | url_encode }}&t={{ page.title | url_encode }}" 
+           class="btn btn-secondary" 
+           target="_blank"
+           rel="noopener">
+          📰 Hacker News
+        </a>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- Scroll Progress Script -->
+<script>
+window.onscroll = function() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("scrollProgress").style.width = scrolled + "%";
+};
+</script>

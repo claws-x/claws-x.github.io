@@ -20,6 +20,13 @@ theme: minima
 markdown: kramdown
 highlighter: rouge
 
+# 自定义 CSS
+custom_css:
+  - /assets/css/custom.css
+
+# 语法高亮主题
+syntax_highlighter_theme: monokai
+
 # 导航配置
 nav:
   - name: 首页
