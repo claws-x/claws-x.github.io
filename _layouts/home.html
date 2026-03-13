@@ -2,69 +2,63 @@
 layout: default
 ---
 
-<!-- Hero Section with Lobster Image -->
+<!-- Hero Section -->
 <section class="hero">
   <div class="site-wrapper">
     <h1>
-      Six Degrees Learning Path
-      <span class="chinese">六度空间学习之路</span>
+      <span class="en">Six Degrees Learning Path</span>
+      <span class="zh">六度空间学习之路</span>
     </h1>
-    <p>AI 用起来 - iOS Development & Indie Hacking</p>
-    
-    <!-- Language Switcher -->
-    <div style="margin-top: 24px;">
-      <div class="lang-switcher" style="display: inline-flex;">
-        <button class="active">EN</button>
-        <button>中文</button>
-      </div>
-    </div>
+    <p>iOS Development & Indie Hacking / iOS 开发与独立创业</p>
     
     <!-- Stats Bar -->
     <div class="stats-bar">
       <div class="stat">
         <div class="stat-value">5+</div>
-        <div class="stat-label">Apps Shipped</div>
+        <div class="stat-label">APPS SHIPPED</div>
       </div>
       <div class="stat">
         <div class="stat-value">4K+</div>
-        <div class="stat-label">Users</div>
+        <div class="stat-label">USERS</div>
       </div>
       <div class="stat">
         <div class="stat-value">$5K+</div>
-        <div class="stat-label">Monthly Revenue</div>
+        <div class="stat-label">MONTHLY</div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- Lobster Divider -->
-<div class="lobster-divider"></div>
 
 <!-- Post Grid -->
 <div class="post-grid">
   {% for post in paginator.posts %}
   <article class="post-card">
     <h2>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <a href="{{ post.url | relative_url }}">
+        <span class="en">{{ post.title }}</span>
+        {% if post.subtitle_zh %}
+        <span class="zh">{{ post.subtitle_zh }}</span>
+        {% endif %}
+      </a>
     </h2>
     
     <div class="post-meta">
-      <span>📅 {{ post.date | date: "%Y-%m-%d" }}</span>
-      <span>⏱️ {{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min</span>
+      <span>{{ post.date | date: "%Y-%m-%d" }}</span>
+      <span>{{ post.content | number_of_words | divided_by: 200 | plus: 1 }} MIN</span>
     </div>
     
     <p class="post-excerpt">
       {% if post.excerpt %}
-        {{ post.excerpt | strip_html | truncate: 180 }}
+        {{ post.excerpt | strip_html | truncate: 150 }}
       {% else %}
-        {{ post.content | strip_html | truncate: 180 }}
+        {{ post.content | strip_html | truncate: 150 }}
       {% endif %}
     </p>
     
     {% if post.tags %}
     <div class="post-tags">
       {% for tag in post.tags %}
-      <span class="tag">#{{ tag }}</span>
+      <span class="tag">{{ tag }}</span>
       {% endfor %}
     </div>
     {% endif %}
@@ -72,26 +66,15 @@ layout: default
   {% endfor %}
 </div>
 
-<!-- Lobster Divider -->
-<div class="lobster-divider"></div>
+<!-- Simple Footer -->
+<footer style="text-align: center; padding: 48px 0; border-top: 1px solid var(--border); max-width: 1000px; margin: 0 auto;">
+  <p style="color: var(--text-tertiary); font-size: 12px; font-family: var(--font-mono);">
+    © 2026 SIX DEGREES LEARNING PATH
+  </p>
+  <p style="color: var(--text-tertiary); font-size: 12px; font-family: var(--font-mono); margin-top: 8px;">
+    GITHUB: <a href="https://github.com/claws-x" style="color: var(--accent); text-decoration: none;">CLAWS-X</a>
+  </p>
+</footer>
 
-<!-- About Section -->
-<div style="max-width: 800px; margin: 0 auto; padding: 0 20px 80px;">
-  <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 48px; border-radius: 12px; text-align: center;">
-    <div style="font-size: 48px; margin-bottom: 16px;">🦞</div>
-    <h2 style="font-family: var(--font-handwriting); font-size: 32px; margin-bottom: 16px; color: var(--text-primary);">About This Blog</h2>
-    <p style="color: var(--text-secondary); font-size: 16px; line-height: 1.8; margin-bottom: 32px;">
-      AI 用起来，这里是六度空间学习之路。专注于 iOS 开发、独立创业和深度技术分享。
-      <br><br>
-      Every article is carefully crafted. Quality over quantity.
-    </p>
-    <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-      <a href="https://github.com/claws-x" class="btn" target="_blank" rel="noopener">
-        GitHub
-      </a>
-      <a href="/about/" class="btn btn-secondary">
-        More About Me
-      </a>
-    </div>
-  </div>
-</div>
+<!-- Matrix Background -->
+<script src="{{ '/assets/js/matrix.js' | relative_url }}"></script>

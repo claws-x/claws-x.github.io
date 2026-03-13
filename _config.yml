@@ -24,6 +24,10 @@ highlighter: rouge
 custom_css:
   - /assets/css/custom.css
 
+# 自定义 JS
+custom_js:
+  - /assets/js/matrix.js
+
 # 语法高亮主题
 syntax_highlighter_theme: monokai
 
