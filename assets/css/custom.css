@@ -1,25 +1,26 @@
 /* 
- * Six Degrees Space - Hacker Theme
- * 六度空间学习之路 - 黑客帝国主题
+ * Six Degrees Space - Transparent Glass Theme
+ * 六度空间学习之路 - 透明玻璃主题
  * Clean, Tech, Matrix Code Rain
  */
 
 /* ===== CSS Variables ===== */
 :root {
-  /* Colors - Dark Tech */
-  --bg-main: #000000;
-  --bg-card: #0a0a0a;
-  --bg-hover: #111111;
+  /* Colors - Transparent */
+  --bg-main: transparent;
+  --bg-card: rgba(10, 10, 10, 0.6);
+  --bg-hover: rgba(20, 20, 20, 0.7);
   
   --text-primary: #ffffff;
-  --text-secondary: #888888;
-  --text-tertiary: #555555;
+  --text-secondary: #00ff41;
+  --text-tertiary: #008f11;
   
-  --accent: #00ff41; /* Matrix Green */
+  --accent: #00ff41;
   --accent-dim: #008f11;
+  --accent-glow: rgba(0, 255, 65, 0.5);
   
-  --border: #1a1a1a;
-  --border-light: #2a2a2a;
+  --border: rgba(0, 255, 65, 0.2);
+  --border-light: rgba(0, 255, 65, 0.4);
   
   /* Typography */
   --font-mono: 'SF Mono', 'Fira Code', monospace;
@@ -47,14 +48,14 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: var(--bg-main);
+  background: transparent;
   color: var(--text-primary);
   line-height: 1.7;
   font-size: 16px;
   overflow-x: hidden;
 }
 
-/* ===== Matrix Code Rain Background ===== */
+/* ===== Matrix Background ===== */
 #matrix-bg {
   position: fixed;
   top: 0;
@@ -72,13 +73,13 @@ body {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(0, 0, 0, 0.9);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border);
 }
 
 .site-header .site-wrapper {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: var(--space-2);
   display: flex;
@@ -93,6 +94,7 @@ body {
   color: var(--accent);
   text-decoration: none;
   letter-spacing: 2px;
+  text-shadow: 0 0 10px var(--accent-glow);
 }
 
 .site-nav {
@@ -105,17 +107,19 @@ body {
   text-decoration: none;
   font-size: 13px;
   font-family: var(--font-mono);
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
 
 .site-nav a:hover {
   color: var(--accent);
+  text-shadow: 0 0 20px var(--accent-glow);
 }
 
 /* ===== Hero ===== */
 .hero {
   padding: 200px 0 100px;
   text-align: center;
+  background: radial-gradient(ellipse at center, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
 }
 
 .hero .site-wrapper {
@@ -131,6 +135,13 @@ body {
   line-height: 1.6;
   margin-bottom: var(--space-2);
   color: var(--text-primary);
+  text-shadow: 0 0 30px var(--accent-glow);
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+  0%, 100% { text-shadow: 0 0 30px var(--accent-glow); }
+  50% { text-shadow: 0 0 60px var(--accent-glow), 0 0 100px var(--accent-glow); }
 }
 
 .hero h1 .en {
@@ -142,6 +153,7 @@ body {
   display: block;
   font-size: 32px;
   color: var(--text-secondary);
+  text-shadow: 0 0 20px var(--accent-glow);
 }
 
 .hero p {
@@ -160,6 +172,11 @@ body {
 
 .stat {
   text-align: center;
+  padding: var(--space-3);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
 }
 
 .stat-value {
@@ -167,6 +184,7 @@ body {
   font-weight: 700;
   color: var(--accent);
   font-family: var(--font-mono);
+  text-shadow: 0 0 20px var(--accent-glow);
 }
 
 .stat-label {
@@ -183,22 +201,45 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--space-3);
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-2) var(--space-6);
 }
 
-/* ===== Post Card ===== */
+/* ===== Post Card - Glass Effect ===== */
 .post-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   padding: var(--space-3);
-  transition: all 0.2s;
+  border-radius: 16px;
+  backdrop-filter: blur(20px) saturate(180%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.post-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
 }
 
 .post-card:hover {
-  border-color: var(--accent-dim);
+  border-color: var(--border-light);
   background: var(--bg-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 255, 65, 0.2);
+}
+
+.post-card:hover::before {
+  opacity: 1;
 }
 
 .post-card h2 {
@@ -207,12 +248,15 @@ body {
   font-weight: 600;
   line-height: 1.6;
   margin-bottom: var(--space-2);
+  position: relative;
+  z-index: 1;
 }
 
 .post-card h2 .en {
   display: block;
   color: var(--text-primary);
   margin-bottom: 4px;
+  text-shadow: 0 0 10px var(--accent-glow);
 }
 
 .post-card h2 .zh {
@@ -253,12 +297,13 @@ body {
 }
 
 .tag {
-  background: var(--bg-hover);
-  color: var(--accent-dim);
+  background: rgba(0, 255, 65, 0.1);
+  color: var(--accent);
   padding: 3px 8px;
   font-size: 10px;
   font-family: var(--font-mono);
   border: 1px solid var(--border);
+  border-radius: 4px;
 }
 
 /* ===== Single Post ===== */
@@ -275,6 +320,7 @@ body {
   font-weight: 700;
   line-height: 1.5;
   margin-bottom: var(--space-2);
+  text-shadow: 0 0 40px var(--accent-glow);
 }
 
 .post-title .en {
@@ -314,6 +360,7 @@ body {
   font-weight: 600;
   color: var(--text-primary);
   margin: var(--space-5) 0 var(--space-2);
+  text-shadow: 0 0 20px var(--accent-glow);
 }
 
 .post-content h3 {
@@ -330,15 +377,28 @@ body {
 .post-content a {
   color: var(--accent);
   text-decoration: none;
+  position: relative;
 }
 
-.post-content a:hover {
-  text-decoration: underline;
+.post-content a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.post-content a:hover::after {
+  width: 100%;
 }
 
 /* ===== Code ===== */
 .post-content pre {
-  background: #050505;
+  background: rgba(5, 5, 5, 0.8);
   border: 1px solid var(--border);
   padding: var(--space-2);
   overflow-x: auto;
@@ -346,6 +406,7 @@ body {
   font-family: var(--font-mono);
   font-size: 12px;
   line-height: 1.6;
+  border-radius: 8px;
 }
 
 .post-content code {
@@ -353,10 +414,12 @@ body {
 }
 
 .post-content :not(pre) > code {
-  background: var(--bg-hover);
+  background: rgba(0, 255, 65, 0.1);
   padding: 2px 6px;
   font-size: 13px;
   color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 4px;
 }
 
 /* ===== Footer ===== */
@@ -364,6 +427,8 @@ body {
   border-top: 1px solid var(--border);
   padding: var(--space-5) 0;
   text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
 }
 
 .site-footer p {
@@ -376,18 +441,20 @@ body {
 .btn {
   display: inline-block;
   padding: 8px 16px;
-  background: var(--bg-hover);
-  color: var(--text-primary);
+  background: rgba(0, 255, 65, 0.1);
+  color: var(--accent);
   border: 1px solid var(--border);
   font-size: 12px;
   font-family: var(--font-mono);
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all 0.3s;
+  border-radius: 6px;
 }
 
 .btn:hover {
+  background: rgba(0, 255, 65, 0.2);
   border-color: var(--accent);
-  color: var(--accent);
+  box-shadow: 0 0 30px var(--accent-glow);
 }
 
 /* ===== Responsive ===== */
@@ -414,9 +481,34 @@ body {
   }
 }
 
-/* ===== Matrix Animation ===== */
-@keyframes matrixRain {
-  0% { transform: translateY(-100%); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
+/* ===== Glowing Text Effect ===== */
+.glow-text {
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--accent-glow), 0 0 20px var(--accent-glow);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--accent-glow), 0 0 40px var(--accent-glow), 0 0 60px var(--accent-glow);
+  }
+}
+
+/* ===== Typing Effect ===== */
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid var(--accent);
+  white-space: nowrap;
+  animation: typing 3s steps(30) infinite, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--accent); }
 }
