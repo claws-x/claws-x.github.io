@@ -17,13 +17,13 @@
   const chars = 'ᠠᠨᠪᠫᠬᠭᠮᠯᠰᠱᠲᠳᠴ';
   const charArray = chars.split('');
   
-  const fontSize = 14;
-  const columns = canvas.width / fontSize;
+  const fontSize = 16;
+  const columns = Math.ceil(canvas.width / fontSize);
   
-  // Drops array
+  // Drops array - full coverage
   const drops = [];
   for (let i = 0; i < columns; i++) {
-    drops[i] = Math.random() * -100;
+    drops[i] = Math.random() * -50;
   }
   
   // Draw function
