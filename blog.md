@@ -1,17 +1,16 @@
 ---
 layout: default
 title: Blog
-subtitle: All Articles
 ---
 
 <!-- Blog Header -->
-<section class="hero" style="padding-top: 120px;">
+<section class="hero">
   <div class="site-wrapper">
-    <h1 style="font-size: 48px;">
+    <h1>
       <span class="en">Blog</span>
       <span class="zh">博客文章</span>
     </h1>
-    <p>All articles about iOS Development, AI, and Indie Hacking</p>
+    <p>iOS Development & Indie Hacking / iOS 开发与独立创业</p>
   </div>
 </section>
 
