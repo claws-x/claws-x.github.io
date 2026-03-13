@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+  {% if site.custom_css %}
+    {% for css in site.custom_css %}
+  <link rel="stylesheet" href="{{ css | relative_url }}">
+    {% endfor %}
+  {% endif %}
+</head>
+<body>
+  <!-- Matrix Background - Load First -->
+  <canvas id="matrix-bg"></canvas>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="site-wrapper">
+      <a href="/" class="site-title">{{ site.title }}</a>
+      <nav class="site-nav">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="https://github.com/claws-x" target="_blank">GitHub</a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    {{ content }}
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-wrapper">
+      <p>© 2026 SIX DEGREES LEARNING PATH</p>
+      <p>GITHUB: <a href="https://github.com/claws-x" style="color: var(--accent); text-decoration: none;">CLAWS-X</a></p>
+    </div>
+  </footer>
+  
+  <!-- Matrix Script -->
+  <script src="{{ '/assets/js/matrix.js?v=3' | relative_url }}"></script>
+</body>
+</html>
