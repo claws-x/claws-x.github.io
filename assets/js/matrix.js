@@ -13,8 +13,8 @@
   canvas.height = window.innerHeight;
   
   // Matrix characters - User Selected Mongolian Script
-  // a na ba pa ha ga ma la sa sha ta da cha + 01
-  const chars = '01ᠠᠨᠪᠫᠬᠭᠮᠯᠰᠱᠲᠳᠴ';
+  // a na ba pa ha ga ma la sa sha ta da cha (no numbers)
+  const chars = 'ᠠᠨᠪᠫᠬᠭᠮᠯᠰᠱᠲᠳᠴ';
   const charArray = chars.split('');
   
   const fontSize = 14;
