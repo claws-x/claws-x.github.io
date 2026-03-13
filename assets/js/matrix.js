@@ -35,10 +35,26 @@
     ctx.fillStyle = '#00ff41';
     ctx.font = fontSize + 'px monospace';
     
-    // Draw characters
+    // Draw characters with 90 degree rotation
     for (let i = 0; i < drops.length; i++) {
       const char = charArray[Math.floor(Math.random() * charArray.length)];
-      ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+      const x = i * fontSize;
+      const y = drops[i] * fontSize;
+      
+      // Save context
+      ctx.save();
+      
+      // Translate to character position
+      ctx.translate(x + fontSize / 2, y + fontSize / 2);
+      
+      // Rotate 90 degrees (clockwise)
+      ctx.rotate(Math.PI / 2);
+      
+      // Draw character centered
+      ctx.fillText(char, -fontSize / 2, fontSize / 2);
+      
+      // Restore context
+      ctx.restore();
       
       // Reset drop when it reaches bottom
       if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
