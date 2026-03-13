@@ -1,41 +1,40 @@
 /* 
- * Six Degrees Space - Minimal Tech Theme
- * 六度空间学习之路 - 极简科技主题
- * Clean, Professional, Focused
+ * Six Degrees Space - Lobster Theme
+ * 六度空间学习之路 - 龙虾主题
+ * Handwritten Style + Deep Blue + Lobster
  */
 
-/* ===== CSS Variables - Minimal ===== */
+/* ===== CSS Variables ===== */
 :root {
-  /* Core Colors */
-  --bg-main: #000000;
-  --bg-card: #111111;
-  --bg-hover: #1a1a1a;
+  /* Colors - Deep Blue Theme */
+  --bg-main: #0a0e1a;
+  --bg-card: #111827;
+  --bg-hover: #1a2332;
   
   --text-primary: #ffffff;
-  --text-secondary: #888888;
-  --text-tertiary: #666666;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
   
-  --accent: #007aff;
-  --accent-hover: #0066d6;
+  --primary: #1a3a5c;
+  --primary-light: #2d5a87;
+  --primary-dark: #0f263f;
+  --accent: #ff6b35;
   
-  --border: #222222;
-  --border-light: #333333;
+  --border: #1e293b;
+  --border-light: #334155;
   
-  /* Spacing - 8px Grid */
+  /* Typography - Handwritten Style */
+  --font-handwriting: 'Caveat', 'Ma Shan Zheng', cursive;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'SF Mono', Monaco, monospace;
+  
+  /* Spacing */
   --space-1: 8px;
   --space-2: 16px;
   --space-3: 24px;
   --space-4: 32px;
   --space-5: 48px;
   --space-6: 64px;
-  
-  /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'SF Mono', Monaco, monospace;
-  
-  /* Effects */
-  --transition: all 0.2s ease;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== Reset ===== */
@@ -55,14 +54,6 @@ body {
   color: var(--text-primary);
   line-height: 1.7;
   font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ===== Layout ===== */
-.site-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 var(--space-2);
 }
 
 /* ===== Header ===== */
@@ -72,22 +63,25 @@ body {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(10, 14, 26, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
 
 .site-header .site-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-2);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-2);
 }
 
 .site-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-family: var(--font-handwriting);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -100,25 +94,57 @@ body {
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 14px;
-  transition: var(--transition);
+  transition: all 0.2s;
 }
 
 .site-nav a:hover {
-  color: var(--text-primary);
+  color: var(--accent);
 }
 
-/* ===== Hero ===== */
+/* ===== Hero with Lobster Image ===== */
 .hero {
-  padding: 160px 0 80px;
+  position: relative;
+  padding: 200px 0 100px;
   text-align: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(180deg, transparent 0%, var(--bg-main) 100%),
+    url('/assets/images/lobster-hero.jpg') center/cover no-repeat;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.hero .site-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-family: var(--font-handwriting);
+  font-size: 64px;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--space-2);
   color: var(--text-primary);
+}
+
+.hero h1 .chinese {
+  display: block;
+  font-size: 48px;
+  color: var(--accent);
+  margin-top: var(--space-2);
 }
 
 .hero p {
@@ -141,9 +167,9 @@ body {
 }
 
 .stat-value {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--primary-light);
 }
 
 .stat-label {
@@ -154,36 +180,54 @@ body {
   margin-top: 4px;
 }
 
+/* ===== Lobster Divider ===== */
+.lobster-divider {
+  text-align: center;
+  padding: var(--space-4) 0;
+  opacity: 0.5;
+}
+
+.lobster-divider::before {
+  content: '🦞';
+  font-size: 24px;
+}
+
 /* ===== Post Grid ===== */
 .post-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--space-3);
-  padding-bottom: var(--space-6);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-2) var(--space-6);
 }
 
 /* ===== Post Card ===== */
 .post-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
+  border-radius: 12px;
   padding: var(--space-3);
-  transition: var(--transition);
+  transition: all 0.2s;
 }
 
 .post-card:hover {
-  border-color: var(--border-light);
+  border-color: var(--primary-light);
   background: var(--bg-hover);
+  transform: translateY(-2px);
 }
 
 .post-card h2 {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.5;
+  font-family: var(--font-handwriting);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
   margin-bottom: var(--space-2);
+  color: var(--text-primary);
 }
 
 .post-card h2 a {
-  color: var(--text-primary);
+  color: inherit;
   text-decoration: none;
 }
 
@@ -227,14 +271,15 @@ body {
 
 /* ===== Single Post ===== */
 .post-header {
-  padding: 160px 0 60px;
+  padding: 180px 0 60px;
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
 }
 
 .post-title {
-  font-size: 42px;
+  font-family: var(--font-handwriting);
+  font-size: 48px;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--space-2);
@@ -260,8 +305,9 @@ body {
 }
 
 .post-content h2 {
-  font-size: 28px;
-  font-weight: 600;
+  font-family: var(--font-handwriting);
+  font-size: 32px;
+  font-weight: 700;
   color: var(--text-primary);
   margin: var(--space-5) 0 var(--space-2);
 }
@@ -278,7 +324,7 @@ body {
 }
 
 .post-content a {
-  color: var(--accent);
+  color: var(--primary-light);
   text-decoration: none;
 }
 
@@ -288,7 +334,7 @@ body {
 
 /* ===== Code ===== */
 .post-content pre {
-  background: #0d0d0d;
+  background: #0d1117;
   border: 1px solid var(--border);
   padding: var(--space-2);
   overflow-x: auto;
@@ -343,21 +389,26 @@ body {
   font-size: 13px;
 }
 
+.site-footer .lobster {
+  font-size: 20px;
+  margin-bottom: var(--space-2);
+}
+
 /* ===== Buttons ===== */
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  background: var(--accent);
+  background: var(--primary);
   color: white;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 500;
   font-size: 14px;
-  transition: var(--transition);
+  transition: all 0.2s;
 }
 
 .btn:hover {
-  background: var(--accent-hover);
+  background: var(--primary-light);
 }
 
 .btn-secondary {
@@ -370,14 +421,42 @@ body {
   background: var(--bg-card);
 }
 
+/* ===== Language Switcher ===== */
+.lang-switcher {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.lang-switcher button {
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.lang-switcher button:hover,
+.lang-switcher button.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .hero h1 {
+    font-size: 42px;
+  }
+  
+  .hero h1 .chinese {
     font-size: 32px;
   }
   
   .post-title {
-    font-size: 28px;
+    font-size: 32px;
   }
   
   .post-grid {
@@ -389,3 +468,6 @@ body {
     gap: var(--space-3);
   }
 }
+
+/* ===== Google Fonts Import ===== */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Ma+Shan+Zheng&display=swap');

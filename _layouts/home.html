@@ -2,11 +2,22 @@
 layout: default
 ---
 
-<!-- Hero Section -->
+<!-- Hero Section with Lobster Image -->
 <section class="hero">
   <div class="site-wrapper">
-    <h1 class="glow-text">{{ site.title }}</h1>
-    <p>{{ site.description }}</p>
+    <h1>
+      Six Degrees Learning Path
+      <span class="chinese">六度空间学习之路</span>
+    </h1>
+    <p>AI 用起来 - iOS Development & Indie Hacking</p>
+    
+    <!-- Language Switcher -->
+    <div style="margin-top: 24px;">
+      <div class="lang-switcher" style="display: inline-flex;">
+        <button class="active">EN</button>
+        <button>中文</button>
+      </div>
+    </div>
     
     <!-- Stats Bar -->
     <div class="stats-bar">
@@ -25,6 +36,9 @@ layout: default
     </div>
   </div>
 </section>
+
+<!-- Lobster Divider -->
+<div class="lobster-divider"></div>
 
 <!-- Post Grid -->
 <div class="post-grid">
@@ -58,35 +72,18 @@ layout: default
   {% endfor %}
 </div>
 
-<!-- Pagination -->
-{% if paginator.total_pages > 1 %}
-<div style="text-align: center; padding: 40px 0;">
-  {% if paginator.previous_page %}
-  <a href="{{ paginator.previous_page_path | relative_url }}" class="btn btn-secondary">
-    ← Newer
-  </a>
-  {% endif %}
-  
-  <span style="margin: 0 20px; color: var(--text-tertiary);">
-    {{ paginator.page }} / {{ paginator.total_pages }}
-  </span>
-  
-  {% if paginator.next_page %}
-  <a href="{{ paginator.next_page_path | relative_url }}" class="btn btn-secondary">
-    Older →
-  </a>
-  {% endif %}
-</div>
-{% endif %}
+<!-- Lobster Divider -->
+<div class="lobster-divider"></div>
 
 <!-- About Section -->
 <div style="max-width: 800px; margin: 0 auto; padding: 0 20px 80px;">
-  <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 48px; border-radius: 24px; text-align: center;">
-    <h2 style="font-size: 32px; margin-bottom: 16px; background: linear-gradient(135deg, #fff, #a1a1aa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">About This Blog</h2>
+  <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 48px; border-radius: 12px; text-align: center;">
+    <div style="font-size: 48px; margin-bottom: 16px;">🦞</div>
+    <h2 style="font-family: var(--font-handwriting); font-size: 32px; margin-bottom: 16px; color: var(--text-primary);">About This Blog</h2>
     <p style="color: var(--text-secondary); font-size: 16px; line-height: 1.8; margin-bottom: 32px;">
       AI 用起来，这里是六度空间学习之路。专注于 iOS 开发、独立创业和深度技术分享。
       <br><br>
-      每篇文章都是精心打磨的精品，宁缺毋滥，对读者时间负责。
+      Every article is carefully crafted. Quality over quantity.
     </p>
     <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
       <a href="https://github.com/claws-x" class="btn" target="_blank" rel="noopener">
